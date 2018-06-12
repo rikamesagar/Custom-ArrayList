@@ -11,10 +11,14 @@ public class Driver
 **	    System.out.println("Hello World: " + args[0] + ", " + args[1] + ", " + args[2]);
 */	    
 	    FileProcessor fp = new FileProcessor();
-	    fp.openFile();
-	    fp.readFile();
-	    fp.closeFIle();
+	    fp.openInputFile();
+	    fp.readInputFile();
+	    fp.closeInputFile();
 	    fp.printArray();
+	    
+	    fp.openOutputFile();
+	    fp.addDataToOutputFIle();
+	    fp.closeOutputFile();
 	    
 	}
 	
