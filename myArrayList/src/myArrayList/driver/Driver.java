@@ -1,24 +1,35 @@
 package myArrayList.driver;
 
+import java.io.FileNotFoundException;
+
+import myArrayList.MyArrayList;
 import myArrayList.util.FileProcessor;
 
 public class Driver 
 {
-
-	public static void main(String[] args) 
+	
+	
+	public static void main(String[] args) throws Exception 
 	{
-/*	    // command line validation is missing here. FIXME!
-**	    System.out.println("Hello World: " + args[0] + ", " + args[1] + ", " + args[2]);
-*/	    
-	    FileProcessor fp = new FileProcessor();
-	    fp.openInputFile();
-	    fp.readInputFile();
-	    fp.closeInputFile();
-	    fp.printArray();
+		FileProcessor fp = new FileProcessor();
+		MyArrayList mal = new MyArrayList();
+		
+		
+	    String str;
 	    
-	    fp.openOutputFile();
-	    fp.addDataToOutputFIle();
-	    fp.closeOutputFile();
+	    while((str = fp.readLine()) != null) {
+	    	int element = Integer.parseInt(str);
+	    	//System.out.println(element);
+	    	mal.insertSorted(element);
+	    }
+	    
+	    mal.displayArr();
+	    
+	    /*
+	    while ((str = fp.readLine()) != null) {
+	    	System.out.println(str);
+	    }
+	    */
 	    
 	}
 	
