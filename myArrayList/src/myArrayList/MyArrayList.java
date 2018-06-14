@@ -1,51 +1,41 @@
 package myArrayList;
 
-import java.util.Arrays;
-
 public class MyArrayList {
 	
-	int  i = 0;
 	int n = 50;
 	static int ElementCount = 0;
 	private int[] arr = new int[n];
 	
 	public void insertSorted(int newValue) {
-		//if(ElementCount > n) {
-		//	n = n*(2);
-//		int i = 0;
-//		arr[i] = newValue;
-//		if(arr.length > 0) {
-//			if(arr[ElementCount-1] >= newValue) {
-//				arr[ElementCount] = newValue;
-//			}
-//			else if() {
-//				
-//			}
-//			
-//		}
-//	      for(int i=0;i<ElementCount;i++){
-//	        if(arr[i]>newValue)
-//	          break;
-//	      }
-//	      for(int k=ElementCount-2; k>=i; k--){
-//	        arr[k+1]=arr[k];            
-//	      }
-//	      arr[i]=newValue;
-//	     System.out.println(Arrays.toString(arr));
-		
-		 int i;
-	        for (i=ElementCount-1; (i >= 0 && arr[i] > newValue); i--)
-	           arr[i+1] = arr[i];
-	      
-	        arr[i+1] = newValue;
-	
+		if(ElementCount > n) {
+			n = (int) (n * 1.5);
+			int [] arrTemp = new int[n];
+			for (int i=0; i<ElementCount-1; i++) {
+	            arrTemp[i] = arr[i];
+			}
+			arr = arrTemp;
+		}
+
+		int i;
+		if(ElementCount > 0 && ElementCount < n) {
+			for (i=ElementCount-1; (i >= 0 && arr[i] > newValue); i--)
+		    	arr[i+1] = arr[i];
+		    arr[i+1] = newValue;
+		}
+		else {
+			i=0;
+			arr[i] = newValue;
+		}
 		ElementCount++;
 	}
-	
 
 	public void displayArr() {
 		for(int j =0 ; j < ElementCount ; j++)
 			System.out.println(arr[j]);
+//		n = (int) (n * 2);
+//		int [] arrTemp = new int[n];
+//		arr = arrTemp;
+//		System.out.println(arr.length);
 	}
 	
 	
@@ -59,10 +49,13 @@ public class MyArrayList {
 	}
 	
 	public int size() {
-		return 1;
+		return ElementCount;
 	}
 	
-	public int sum() {	
-		return 1;
+	public int sum() {
+		int sum = 0;
+		for(int k = 0; k < ElementCount; k++)
+			sum = sum + arr[k]; 
+		return sum;
 	}
 }

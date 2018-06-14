@@ -1,7 +1,5 @@
 package myArrayList.driver;
 
-import java.io.FileNotFoundException;
-
 import myArrayList.MyArrayList;
 import myArrayList.util.FileProcessor;
 
@@ -24,7 +22,8 @@ public class Driver
 	    }
 	    
 	    mal.displayArr();
-	    
+	    System.out.println(mal.size());
+	    System.out.println(mal.sum());
 	    /*
 	    while ((str = fp.readLine()) != null) {
 	    	System.out.println(str);
