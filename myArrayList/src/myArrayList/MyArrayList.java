@@ -4,6 +4,7 @@ public class MyArrayList {
 	
 	int n = 50;
 	static int ElementCount = 0;
+
 	private int[] arr = new int[n];
 	
 	public void insertSorted(int newValue) {
@@ -39,13 +40,44 @@ public class MyArrayList {
 	}
 	
 	
+	static int binarySearch(int arr[], int low, int high, int key)
+    {
+        if (high < low)
+            return -1;
+        int mid = (low + high)/2;
+        if (key == arr[mid])
+            return mid;
+        if (key > arr[mid])
+            return binarySearch(arr, (mid + 1), high, key);
+        return binarySearch(arr, low, (mid -1), key);
+    }
+	
+	
 	public void removeValue(int value) {
-		
+		do {
+		int pos = binarySearch(arr, 0, ElementCount-1, value);
+	      
+        if (pos==-1)
+        {
+            System.out.println("Element not found");
+        }
+        int i;
+        for (i=pos; i<n-1; i++)
+            arr[i] = arr[i+1];
+        ElementCount--;
+		}
+		while(binarySearch(arr, 0, ElementCount-1, value) != -1);
 	}
 	
 	public int indexOf(int value) {
-	
-		return 1;
+		int pos = binarySearch(arr, 0, ElementCount-1, value);
+	      
+        if (pos==-1)
+        {
+            System.out.println("Element not found");
+            return 0;
+        }
+		return pos;
 	}
 	
 	public int size() {

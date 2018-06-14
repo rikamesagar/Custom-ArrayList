@@ -9,9 +9,16 @@ public class Driver
 	
 	public static void main(String[] args) throws Exception 
 	{
+		if (args.length==0)
+		{
+			System.out.println("File not found");
+			System.exit(0);
+		}
+		
 		FileProcessor fp = new FileProcessor();
 		MyArrayList mal = new MyArrayList();
 		
+		fp.InputFile = args[0];
 		
 	    String str;
 	    
@@ -24,6 +31,11 @@ public class Driver
 	    mal.displayArr();
 	    System.out.println(mal.size());
 	    System.out.println(mal.sum());
+	    mal.removeValue(23);
+	    mal.displayArr();
+	    System.out.println(mal.size());
+	    System.out.println(mal.sum());
+	    System.out.println(mal.indexOf(3));
 	    /*
 	    while ((str = fp.readLine()) != null) {
 	    	System.out.println(str);
