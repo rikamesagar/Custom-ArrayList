@@ -1,19 +1,20 @@
 package myArrayList.util;
-import java.io.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class FileProcessor {
 	
-	public File file;
-	public BufferedReader br;
+	private File file;
+	private BufferedReader br;
 	
-	public String InputFile = null;
-	public String OutputFile = null;
+	private String InputFile = null;
 	
-	public FileProcessor() throws Exception {
-//		file = new File("C:\\Users\\rikam\\Google Drive\\Summer 2018\\Design Patterns\\projects\\csx42-s18-assign-1--srikame1\\myArrayList\\src\\myArrayList\\util\\input.txt");
+	public FileProcessor(String InputFile) throws Exception {
+		this.InputFile = InputFile;
 		file = new File(InputFile);
-		br = new BufferedReader(new FileReader(file));
+		br = new BufferedReader(new FileReader(InputFile));
 	}
 	
 	public String readLine() {
@@ -23,9 +24,5 @@ public class FileProcessor {
 		catch (Exception e) {
 			return "Error Occured";
 		}
-	}
-	
-	public void closeInputFile() {
-	
 	}
 }

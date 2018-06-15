@@ -1,1 +1,1 @@
-The sum of all the values in the array list is: 848
+The sum of all the values in the array list is: 1416

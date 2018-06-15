@@ -33,10 +33,6 @@ public class MyArrayList {
 	public void displayArr() {
 		for(int j =0 ; j < ElementCount ; j++)
 			System.out.println(arr[j]);
-//		n = (int) (n * 2);
-//		int [] arrTemp = new int[n];
-//		arr = arrTemp;
-//		System.out.println(arr.length);
 	}
 	
 	
