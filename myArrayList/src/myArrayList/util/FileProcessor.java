@@ -11,10 +11,16 @@ public class FileProcessor {
 	
 	private String InputFile = null;
 	
-	public FileProcessor(String InputFile) throws Exception {
-		this.InputFile = InputFile;
-		file = new File(InputFile);
-		br = new BufferedReader(new FileReader(InputFile));
+	public FileProcessor(String InputFile){
+		try {
+			this.InputFile = InputFile;
+			file = new File(InputFile);
+			br = new BufferedReader(new FileReader(InputFile));
+		}
+		catch (Exception e) {
+			System.out.println("Error Occured: Reading from the file failed");
+		}
+		
 	}
 	
 	public String readLine() {
@@ -22,7 +28,7 @@ public class FileProcessor {
 			return br.readLine();
 		}
 		catch (Exception e) {
-			return "Error Occured";
+			return "Error Occured: Unable to read the contents of the file";
 		}
 	}
 }

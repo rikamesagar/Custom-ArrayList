@@ -1,43 +1,45 @@
 package myArrayList.driver;
 
 import myArrayList.MyArrayList;
-import myArrayList.util.FileDisplayInterface;
+import myArrayList.test.MyArrayListTest;
 import myArrayList.util.FileProcessor;
+import myArrayList.util.Results;
 
 public class Driver 
 {
 	
 	
-	public static void main(String[] args) throws Exception 
-	{
-		if (args.length==0)
-		{
-			System.out.println("Files not found");
+	public static void main(String[] args) {
+		if (args.length==0) {
+			System.out.println("Input and Output Files not found");
 			System.exit(0);
 		}
 		
 		FileProcessor fp = new FileProcessor(args[0]);
-		FileDisplayInterface fdi = new FileDisplayInterface(args[1]);
+		Results rs = new Results(args[1]);
 		MyArrayList mal = new MyArrayList();
+		MyArrayListTest malt = new MyArrayListTest();
 		
 	    String str;
 	    
 	    while((str = fp.readLine()) != null) {
-	    	//System.out.println(str);
-	    	//System.out.println(args[0]);
-	    	int element = Integer.parseInt(str);
+	    	int element = 0;
+	    	try {
+	    		element = Integer.parseInt(str);
+	    	}
+	    	catch (Exception e) {
+	    		System.out.println("Error Occured: The value is not an integer");
+	    	}
 	    	mal.insertSorted(element);
 	    }
 	    
-	    mal.displayArr();
-	    System.out.println(mal.size());
-	    System.out.println(mal.sum());
-	    mal.removeValue(23);
-	    mal.displayArr();
-	    System.out.println(mal.size());
-	    System.out.println(mal.sum());
-	    System.out.println(mal.indexOf(3));
 	    String SumString = Integer.toString(mal.sum());
-	    fdi.writeToFile(SumString);
+	    
+	    rs.writeToFile(SumString);
+	    //rs.writeToStdout(Integer.toString(mal.size()));
+	    //rs.writeToStdout(Integer.toString(mal.sum()));
+	    
+	//    String TestString = Object.toString(malt.testMe(mal , rs));
+	//    rs.writeToFile();
 	}
 }

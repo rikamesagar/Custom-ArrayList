@@ -2,11 +2,17 @@ package myArrayList;
 
 public class MyArrayList {
 	
-	int n = 50;
-	static int ElementCount = 0;
-
-	private int[] arr = new int[n];
+	private int[] arr;
+	static int ElementCount;
+	int n;
 	
+	public MyArrayList(){
+		n = 50;
+		ElementCount = 0;
+		arr = new int[n];
+	}
+	
+		
 	public void insertSorted(int newValue) {
 		if(ElementCount > n) {
 			n = (int) (n * 1.5);
@@ -70,7 +76,7 @@ public class MyArrayList {
 	      
         if (pos==-1)
         {
-            System.out.println("Element not found");
+            System.out.println("Error Occured: Element "+value+" not found");
             return 0;
         }
 		return pos;

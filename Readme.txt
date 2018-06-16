@@ -1,5 +1,4 @@
-
-Assuming you are in the directory containing this README:
+﻿Assuming you are in the directory containing this README:
 
 ## To clean:
 ant -buildfile src/build.xml clean
@@ -29,15 +28,18 @@ grade of 0 for the involved assignment for my first offense and that I
 will receive a grade of F for the course for any additional
 offense.”
 
-[Date: ]
-
+[Date: 06/15/18]
+SAGAR PRAKASH RIKAME
 -----------------------------------------------------------------------
 
 Provide justification for Data Structures used in this assignment in
 term of Big O complexity (time and/or space)
-
+Search: O(Log n)
+Insert: O(n)
+Delete: O(n)
 -----------------------------------------------------------------------
 
 Provide list of citations (urls, etc.) from where you have taken code
 (if any).
+
 
